@@ -1,11 +1,15 @@
 
+import Card from "../../shared/Card";
 import UserItem from "./UserItem";
 
 const UsersList = (props) => {
     if (props.items.length === 0) {
         return (
             <div className="text-center py-20 text-gray-500 text-lg font-medium">
-                No Users Found
+                <Card>
+                    <h2>No Users Found</h2>
+
+                </Card>
             </div>
         );
     }

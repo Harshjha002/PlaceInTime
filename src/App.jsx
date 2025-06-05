@@ -2,10 +2,12 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Homepage from "./Homepage"
 import Users from "./users/pages/Users"
 import NewPlace from "./places/pages/NewPlace"
+import MainNavigation from "./shared/navigations/MainNavigation"
 
 const App = () => {
   return (
     <Router>
+      <MainNavigation />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/users" element={<Users />} />
