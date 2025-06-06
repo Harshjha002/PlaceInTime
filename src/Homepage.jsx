@@ -19,7 +19,7 @@ const Homepage = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                    to="/users"
+                    to="/places"
                     className="bg-indigo-600 text-white px-6 py-3 rounded-xl text-lg font-medium hover:bg-indigo-700 transition"
                 >
                     Explore Places

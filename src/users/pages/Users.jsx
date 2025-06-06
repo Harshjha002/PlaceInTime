@@ -1,4 +1,5 @@
-import Searchbar from "../../shared/Searchbar";
+import Filteration from "../../shared/filteration/Filteration";
+import Searchbar from "../../shared/filteration/Searchbar";
 import UsersList from "../components/UsersList";
 
 const Users = () => {
@@ -19,10 +20,8 @@ const Users = () => {
 
     return (
         <>
-            <div>
-                <Searchbar />
-            </div>
 
+            <Filteration />
 
             <UsersList items={USERS} />
         </>

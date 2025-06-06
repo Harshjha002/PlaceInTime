@@ -2,7 +2,7 @@
 const NewPlace = () => {
     return (
         <div>
-            Nw=ew====
+            Add new page
         </div>
     )
 }
