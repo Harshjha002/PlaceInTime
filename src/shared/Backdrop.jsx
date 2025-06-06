@@ -1,14 +1,17 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 const Backdrop = ({ onClick }) => {
-    const content = (
+    const portalElement = document.getElementById("backdrop");
+
+    if (!portalElement) return null;
+
+    return ReactDOM.createPortal(
         <div
             onClick={onClick}
-            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
-        ></div>
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[90]"
+        />,
+        portalElement
     );
-
-    return ReactDOM.createPortal(content, document.getElementById('backdrop'));
 };
 
 export default Backdrop;
