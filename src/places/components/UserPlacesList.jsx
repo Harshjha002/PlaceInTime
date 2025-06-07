@@ -34,6 +34,7 @@ const UserPlacesList = ({ places }) => {
                     address={place.address}
                     creatorId={place.creator}
                     shortDescription={place.shortDescription}
+                    coordinates={place.coordinates}
                 />
             ))}
         </ul>

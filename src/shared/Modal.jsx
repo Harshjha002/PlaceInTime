@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 
 const Modal = ({
@@ -25,7 +26,8 @@ const Modal = ({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[100] flex items-start justify-center pt-[22vh] bg-black/30 backdrop-blur-sm"
+                    className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] bg-black/30 backdrop-blur-sm"
+
                     onClick={onCancel}
                 >
                     <motion.div

@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../../shared/Card';
 import Modal from '../../shared/Modal';
+import Map from '../../shared/Map';
 
-const UsersPlacesItems = ({ id, image, title, shortDescription, address, creatorId }) => {
+const UsersPlacesItems = ({ id, image, title, shortDescription, address, creatorId, coordinates }) => {
     const [showMap, setShowMap] = useState(false);
 
     const openMapHandler = () => setShowMap(true);
@@ -25,20 +26,28 @@ const UsersPlacesItems = ({ id, image, title, shortDescription, address, creator
                         </button>
                     }
                 >
-                    <div className="text-center text-lg text-gray-700 p-4">The Map</div>
+                    <div className="p-0">
+                        <div
+                            className="rounded-2xl overflow-hidden border border-purple-300 shadow-lg"
+                            style={{ height: 'min(50vh, 400px)', width: '100%' }}
+                        >
+                            <Map center={coordinates} />
+                        </div>
+                    </div>
                 </Modal>
+
 
                 <Card>
                     <div className="flex flex-col md:flex-row items-start gap-6 p-6 md:p-8 rounded-2xl shadow-2xl bg-white border border-purple-100 transition hover:shadow-purple-200">
 
-                        {/* Image */}
+
                         <div className="w-full md:w-64 h-48 rounded-xl overflow-hidden">
                             <img src={image} alt={title} className="object-cover w-full h-full" />
                         </div>
 
-                        {/* Info */}
+
                         <div className="flex-1 w-full flex flex-col justify-between">
-                            {/* Title & Creator */}
+
                             <div className="flex items-center justify-between mb-4">
                                 <h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
                                 <Link
@@ -49,13 +58,11 @@ const UsersPlacesItems = ({ id, image, title, shortDescription, address, creator
                                 </Link>
                             </div>
 
-                            {/* Address & Description */}
                             <div className="mb-5 space-y-2">
                                 <h3 className="text-sm text-purple-500">{address}</h3>
                                 <p className="text-gray-700 leading-relaxed">{shortDescription}</p>
                             </div>
 
-                            {/* Action Buttons */}
                             <div className="flex flex-wrap items-center gap-4 mb-6">
                                 <Link
                                     to={`/places/${id}`}
@@ -71,7 +78,7 @@ const UsersPlacesItems = ({ id, image, title, shortDescription, address, creator
                                 </button>
                             </div>
 
-                            {/* Edit/Delete */}
+
                             <div className="flex gap-3">
                                 <button className="px-4 py-2 rounded-md bg-yellow-400 text-white hover:bg-yellow-500 transition font-medium">
                                     Edit

@@ -38,6 +38,7 @@ const AllplacesList = ({ places }) => {
                         shortdescription={place.shortdescription}
                         address={place.address}
                         creatorId={place.creator}
+                        coordinates={place.coordinates}
                     />
                 ))}
             </div>
