@@ -30,6 +30,7 @@ const Modal = ({
 
                     onClick={onCancel}
                 >
+
                     <motion.div
                         initial={{ y: -60, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
