@@ -8,7 +8,7 @@ const Backdrop = ({ onClick }) => {
     return ReactDOM.createPortal(
         <div
             onClick={onClick}
-            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[90]"
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm "
         />,
         portalElement
     );
