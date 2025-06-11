@@ -1,22 +1,20 @@
-
 import Card from "../../shared/Card";
 import UserItem from "./UserItem";
 
-const UsersList = (props) => {
-    if (props.items.length === 0) {
+const UsersList = ({ items }) => {
+    if (items.length === 0) {
         return (
             <div className="text-center py-20 text-gray-500 text-lg font-medium">
                 <Card>
-                    <h2>No Users Found</h2>
-
+                    <h2>No users found. Try a different search.</h2>
                 </Card>
             </div>
         );
     }
 
     return (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8 bg-gray-50 rounded-lg">
-            {props.items.map((user) => (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 px-4 sm:px-8 pb-12">
+            {items.map((user) => (
                 <UserItem
                     key={user.id}
                     id={user.id}
