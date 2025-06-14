@@ -23,8 +23,8 @@ const Input = (props) => {
     const [inputState, dispatch] = useReducer(
         inputReducer,
         {
-            value: props.value?.value || "",
-            isValid: props.value?.isValid || false,
+            value: props.initialValue || "",
+            isValid: props.initialValid || false,
             isTouched: false
         }
     );

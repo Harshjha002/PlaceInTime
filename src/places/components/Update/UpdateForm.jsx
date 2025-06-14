@@ -1,28 +1,31 @@
-import React, { useState } from "react";
 import Input from "../../../shared/formElements/Input";
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from "../../../shared/utils/validators";
+import { useForm } from "../../../shared/hooks/useForm";
 
 const UpdateForm = ({ title, description }) => {
-    const [formState, setFormState] = useState({
-        title: { value: title, isValid: true },
-        description: { value: description, isValid: true },
-    });
-
-    const inputHandler = (id, value, isValid) => {
-        setFormState((prev) => ({
-            ...prev,
-            [id]: { value, isValid },
-        }));
-    };
-
-    const formIsValid = formState.title.isValid && formState.description.isValid;
+    const [formState, inputHandler] = useForm(
+        {
+            title: {
+                value: title,
+                isValid: true,
+            },
+            description: {
+                value: description,
+                isValid: true,
+            },
+        },
+        true
+    );
 
     const submitHandler = (e) => {
         e.preventDefault();
-        if (!formIsValid) return;
+        if (!formState.isValid) return;
+
         console.log("Updated Place:", {
-            title: formState.title.value,
-            description: formState.description.value,
+
+            title: formState.formData.title.value,
+            description: formState.formData.description.value,
+
         });
     };
 
@@ -36,7 +39,8 @@ const UpdateForm = ({ title, description }) => {
                 validators={[VALIDATOR_REQUIRE()]}
                 errorText="Please enter a valid title."
                 onInput={inputHandler}
-                value={formState.title}
+                initialValue={title}
+                initialValid={true}
             />
 
             <Input
@@ -46,13 +50,14 @@ const UpdateForm = ({ title, description }) => {
                 validators={[VALIDATOR_MINLENGTH(5)]}
                 errorText="Please enter a valid description."
                 onInput={inputHandler}
-                value={formState.description}
+                initialValue={description}
+                initialValid={true}
             />
 
             <button
                 type="submit"
-                disabled={!formIsValid}
-                className={`px-4 py-2 rounded-md text-white transition ${formIsValid
+                disabled={!formState.isValid}
+                className={`px-4 py-2 rounded-md text-white transition duration-200 ${formState.isValid
                     ? "bg-purple-600 hover:bg-purple-700"
                     : "bg-gray-400 cursor-not-allowed"
                     }`}

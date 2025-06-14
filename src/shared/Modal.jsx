@@ -7,7 +7,6 @@ const Modal = ({
     onCancel,
     header,
     footer,
-    onSubmit,
     children,
     className = "",
     headerClass = "",
@@ -54,19 +53,17 @@ const Modal = ({
                             </button>
                         </header>
 
-                        {/* Body */}
-                        <form onSubmit={onSubmit ?? ((e) => e.preventDefault())}>
-                            <div className={`p-6 text-gray-800 space-y-4 ${contentClass}`}>
-                                {children}
-                            </div>
+                        <div className={`p-6 text-gray-800 space-y-4 ${contentClass}`}>
+                            {children}
+                        </div>
 
-                            {/* Footer */}
-                            <footer
-                                className={`flex justify-end gap-4 px-6 py-4 bg-gray-100 rounded-b-3xl ${footerClass}`}
-                            >
-                                {footer}
-                            </footer>
-                        </form>
+                        {/* Footer */}
+                        <footer
+                            className={`flex justify-end gap-4 px-6 py-4 bg-gray-100 rounded-b-3xl ${footerClass}`}
+                        >
+                            {footer}
+                        </footer>
+
                     </motion.div>
                 </motion.div>
             )}
